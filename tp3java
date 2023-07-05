@@ -1,0 +1,24 @@
+import React, { useState } from 'react';
+
+function ContadorVocales() {
+  const [inputValue, setInputValue] = useState('');
+  
+  const contarVocales = () => {
+    const vocales = inputValue.match(/[aeiou]/gi);
+    const cantidadVocales = vocales ? vocales.length : 0;
+    alert(`Cantidad de vocales: ${cantidadVocales}`);
+  }
+
+  const handleChange = (event) => {
+    setInputValue(event.target.value);
+  }
+
+  return (
+    <div>
+      <input type="text" value={inputValue} onChange={handleChange} />
+      <button onClick={contarVocales}>Contar vocales</button>
+    </div>
+  );
+}
+
+export default ContadorVocales;
